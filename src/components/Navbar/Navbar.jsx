@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const Navbar = ({ sidebar, setSidebar }) => {
   return <nav className="absolute top-0 left-0 w-full pt-10 text-white z-40">
     <div className="container">
-      <div>
+      <div className="flex justify-between items-center" >
         {/* Logo section */}
         <motion.h1 
          initial={{ opacity: 0, y: -100 }}

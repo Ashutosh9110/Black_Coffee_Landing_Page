@@ -43,7 +43,7 @@ const Hero = () => {
           }}
           className="text-7xl font-bold leading-tight ml-14">Your Black Coffee</motion.h1>
           <motion.div 
-             initial={{ opacity: 0, y: -100 }}
+             initial={{ opacity: 0, y: 100 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{
                type: "spring",
@@ -75,7 +75,16 @@ const Hero = () => {
           className="relative z-40 h-[400px] md:h-[700px] img-shadow"
           />
           {/* orange cirle ring */}
-          <div className="h-[180px] w-[180px] absolute top-24 -right-16 border-primary border-[20px] rounded-full z-10"></div>
+          <motion.div 
+                     initial={{ opacity: 0, y: 100 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     transition={{
+                       type: "spring",
+                       stiffness: 100,
+                       damping: 10,
+                       delay: 1.2
+                     }}
+          className="h-[180px] w-[180px] absolute top-24 -right-16 border-primary border-[20px] rounded-full z-10"></motion.div>
 
           {/* Big Text Section */}
 
@@ -96,7 +105,7 @@ const Hero = () => {
         </div>
         {/* third div section */}
         <motion.div 
-           initial={{ opacity: 0, y: -100 }}
+           initial={{ opacity: 0, y: 100 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{
              type: "spring",
