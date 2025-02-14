@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { delay, motion } from "framer-motion";
 import Coffee1 from "../../assets/coffee/coffee1.png"
 import Coffee3 from "../../assets/coffee/coffee3.png"
 
@@ -14,7 +14,7 @@ const servicesData =  [
 {
   id: 2,
   image : Coffee3,
-  title : "Hot Coffee",
+  title : "Hot Chocolate",
   subtitle : "Lorem ipsum dolor sit, amet consectetur adipisicing elit."
 },
 {
@@ -26,14 +26,36 @@ const servicesData =  [
 ]
 
 
+const cardVariants = {
+  hidden : {opacity: 0, y : 20},
+  visible: { opacity: 1, y: 0,
+    transition : {
+      type: "spring",
+      stiffness: 150,
+      damping: 10,
+      ease: "easeinout"
+    },
+  },
+}
+
+const containerVariants = {
+  hidden : { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: 0.6,
+      staggerChildren: 0.4
+    }
+  }
+}
+
 
 const Services = () => {
 
-  
 
   return  (
 
-  <div className="container my-16 space-y-4">
+  <div className="container my-16 space-y-4">0w
 
     {/* Header Section  */}
     <div className="text-center max-w-lg mx-auto space-y-2 min-h-[20  0px]">
@@ -41,7 +63,7 @@ const Services = () => {
       <motion.h1 
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{
+        transi tion={{
           type: "spring",
           stiffness: 150,
           damping: 10,
@@ -63,9 +85,17 @@ const Services = () => {
       </div>
 
       {/* Card section */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <motion.div 
+    variants={containerVariants}
+    initial= "hidden"
+    whileInView={"visible"}
+    viewport={{ amount: 0.8}}
+    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
       {servicesData.map((service) => (
-        <div className="text-center p-4 space-y-6">
+        <motion.div 
+        variants={cardVariants}
+        className="text-center p-4 space-y-6">
           <img src={service.image} alt=""
           className="img-shadow2 max-w-[200px] mx-auto hover:scale-110 duration-300 cursor-pointer"
           />
@@ -73,9 +103,9 @@ const Services = () => {
             <h1 className="text-2xl font-bold text-primary">{service.title}</h1>
             <h1>{service.subtitle}</h1>
           </div>
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   </div>
   
 )
