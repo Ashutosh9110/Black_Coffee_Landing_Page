@@ -2,6 +2,8 @@ import React from "react";
 import bannerImg from "../../assets/coffee-cover.jpg";
 import AppStoreImg from "../../assets/website/app_store.png";
 import PlayStoreImg from "../../assets/website/play_store.png";
+import { motion } from "framer-motion";
+
 
 
 
@@ -24,24 +26,62 @@ const AppBanner = () => {
       className="sm:min-h-[400px] sm:flex sm:justify-end sm:items-center rounded-xl">
         <div>
           <div className="space-y-6 max-w-xl mx-auto">
-            <h1 className="text-2xl text-center sm:text-4xl font-semibold">
+            <motion.h1 
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 150,
+              damping: 10,
+              delay: 0.2,
+            }}
+            className="text-2xl text-center sm:text-4xl font-semibold">
               Download the app
-            </h1>
-            <p className="text-clip sm:px-20">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta sunt voluptates omnis.{" "}
-            </p>
+            </motion.h1>
+            <motion.p 
+             initial={{ opacity: 0, y: 100 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{
+               type: "spring",
+               stiffness: 150,
+               damping: 10,
+               delay: 0.3,
+             }}
+            className="text-clip sm:px-20">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta sunt voluptates omnis.{" "}
+            </motion.p>
             {/* Images link */}
-            <div className="flex justify-center items-center gap-4">
+            <div 
+         
+            className="flex justify-center items-center gap-4">
             <a 
             href="#"
             className="max-w-[150px] sm:max-w-[120px] md:max-w-[200px]"
             >
-              <img src={AppStoreImg} alt="" />
+              <motion.img 
+                  initial={{ opacity: 0, y: 100 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 150,
+                    damping: 10,
+                    delay: 0.4,
+                  }}
+              src={AppStoreImg} alt="" />
             </a>
             <a 
             href="#"
             className="max-w-[150px] sm:max-w-[120px] md:max-w-[200px]"
             >
-              <img src={PlayStoreImg} alt="" />
+              <motion.img 
+                  initial={{ opacity: 0, y: 100 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 150,
+                    damping: 10,
+                    delay: 0.5,
+                  }}
+              src={PlayStoreImg} alt="" />
             </a>
              </div>
           </div>

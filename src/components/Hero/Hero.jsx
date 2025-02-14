@@ -7,21 +7,21 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 
-// const bgImage = {
-//   backgroundImage : `url(${BgImage})`,
-//   backgroundSize : "cover",
-//   backgroundPosition : "center",
-//   backgroundRepeat: "no-repeat",
-// }
+const bgImage = {
+  backgroundImage : `url(${BgImage})`,
+  backgroundSize : "cover",
+  backgroundPosition : "center",
+  backgroundRepeat: "no-repeat",
+}
 
 const Hero = () => {
 
   const [ sidebar, setSidebar ] = useState(false)
 
   return (
-    <main className="bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${BgImage})` }}>
+    // <main className="bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${BgImage})` }}>
 
-    {/* // <main style={bgImage}> */}
+    <main style={bgImage}>
     <section className="relative min-h-[750px] w-full">
       <div className="container">
         {/* Navbar Section */}
@@ -34,7 +34,7 @@ const Hero = () => {
         <div className="text-lightOrange mt-[100px] md:mt-0 p-4 space-y-28">
           <motion.h1 
           initial={{ opacity: 0, y: -100 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{
             type: "spring",
             stiffness: 100,
@@ -63,7 +63,8 @@ const Hero = () => {
         <div className="relative">
           <motion.img 
            initial={{ opacity: 0, scale: 0 }}
-           animate={{ opacity: 1, scale: 1 }}
+           whileInView={{ opacity: 1, scale: 1 }}
+           viewport={{ once: true }}
            transition={{
              type: "spring",
              stiffness: 100,
@@ -104,6 +105,7 @@ const Hero = () => {
           </motion.div>
         </div>
         {/* third div section */}
+        <div className="hidden lg:block">
         <motion.div 
            initial={{ opacity: 0, y: 100 }}
            animate={{ opacity: 1, y: 0 }}
@@ -125,6 +127,7 @@ const Hero = () => {
         </motion.div>
         <div></div>
         </div>
+        </div>
       </div>
 
       
@@ -138,8 +141,8 @@ const Hero = () => {
             initial={{ x: "100%"}}
             whileInView={{ x: 0}}
             className="absolute top-0 right-0 w-[140px]
-            h-full bg-gradient-to-b from-primary/80 to-primaryDark/80 backdrop-blur-sm z-10">
-              <div className="w-full h-full flex justify-center items-center ">
+            h-full bg-gradient-to-b from-primary/80 to-primaryDark/80 backdrop-blur-sm z-50">
+              <div className="w-full h-full flex  justify-center items-center ">
               <div className="flex flex-col justify-center items-center gap-6 text-white">
                 {/* line */}
                 <div className="w-[1px] h-[70px] bg-white"></div>

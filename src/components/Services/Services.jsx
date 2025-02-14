@@ -52,13 +52,12 @@ const containerVariants = {
 
 const Services = () => {
 
-
   return  (
 
-  <div className="container my-16 space-y-4">0w
+  <div className="container my-16 space-y-4">
 
     {/* Header Section  */}
-    <div className="text-center max-w-lg mx-auto space-y-2 min-h-[20  0px]">
+    <div className="text-center max-w-lg mx-auto space-y-2 min-h-[200px]">
         
       <motion.h1 
         initial={{ opacity: 0, y: 100 }}
